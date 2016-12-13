@@ -1448,7 +1448,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   position:fixed;
   width: calc(100% + 50px);
   height: calc(100% + 50px);
-  background-image: url(../images/8.gif);
+  background-image: url(http://firebelly.s3.amazonaws.com/8.gif);
   background-repeat:no-repeat;
   background-size:150%;
   background-position: top center;
