@@ -543,7 +543,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
    body {
     background-color: #f0f3f8;
     padding: 50px;
-    font-family: arial black, sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 12px;
    }
 
@@ -1351,7 +1351,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   bottom: 1px;
   left: 33%;
   width: calc(45% - 1px);
-  height: 26px;
+  height: 28px;
   background: #fff;
   overflow: hidden;
   text-align: justify;
@@ -1388,6 +1388,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   padding-left: 8px;
   line-height: 26px;
   position: absolute;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .info .toggle {
@@ -1424,10 +1425,31 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   margin-top: 0;
   line-height:16px;
   margin-bottom: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .info p br {
   display: none;
+}
+
+.info ul {
+  padding: 0;
+  margin: -1.25em 0 1.25em;
+}
+
+.info ul li {
+  list-style: none;
+  line-height: 1.25;
+  position: relative;
+}
+
+.info ul li::before {
+  top: 0;
+  left: -13px;
+  content: '∙';
+  line-height: 1;
+  position: absolute;
 }
 
 .downarrow{
