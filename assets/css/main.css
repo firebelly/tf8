@@ -1503,6 +1503,8 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
   .info,
   .info.active {
+    height: auto;
+    bottom: auto;
     position:absolute;
     width: calc(100% + 100px);
     left:-50px;
@@ -1511,7 +1513,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     background-color:#000;
     overflow:visible;
     overflow-x: visible;
-    height:calc(100% + 100px);
+    min-height:calc(100% + 100px);
     padding:75px 50px 50px 50px;
   }
   .info h3 {
