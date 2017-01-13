@@ -11,6 +11,7 @@ var FB = (function($) {
       breakpoint_array = [480,1000,1200],
       $document,
       words,
+      player,
       currentWordIndex,
       $videoWrapper,
       colorScheme,
@@ -26,11 +27,9 @@ var FB = (function($) {
 
     // Set screen size vars
     _resize();
-
     _randomArrangement();
     _randomColorScheme();
     _refreshArrangement();
-    _initBackgroundVideo();
     _initInfoToggle();
 
     // Smoothscroll links
@@ -57,17 +56,6 @@ var FB = (function($) {
       delay: delay,
       offset: -offset
     }, 'easeOutSine');
-  }
-
-  function _initBackgroundVideo() {
-    // var iframe = $videoWrapper.find('iframe');
-    // var player = new Vimeo.Player(iframe);
-
-    // player.on('play', function() {
-    //   setTimeout(function() {
-    //     $videoWrapper.addClass('loaded');
-    //   }, 1500);
-    // });
   }
 
   function _randNum(arr,excludeNum){
@@ -119,11 +107,37 @@ var FB = (function($) {
   }
 
   function _randomColorScheme() {
+
+    // Choose color scheme
     colorScheme = Math.ceil(Math.random()*8);
+
+    // Change body class
     for(var i=1; i<=9; i++){
       $('body').removeClass('color-scheme'+i);
     }
     $('body').addClass('color-scheme'+colorScheme);
+
+    // Change Video
+    var vimeoIds= [ 
+      '194104576',
+      '199392513',
+      '199394087',
+      '199394333',
+      '199394542',
+      '199394777',
+      '199395017',
+      '199395254',
+    ];
+
+    $('.vimeo-wrapper').empty().removeClass('loaded').append('<iframe src="https://player.vimeo.com/video/'+vimeoIds[colorScheme-1]+'?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+    var iframe = $videoWrapper.find('iframe');
+    player = new Vimeo.Player(iframe);
+
+    player.on('play', function() {
+      setTimeout(function() {
+        $videoWrapper.addClass('loaded');
+      }, 1500);
+    });
   }
 
   function _refreshArrangement() {
