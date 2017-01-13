@@ -1304,6 +1304,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   }
   p, li {
     margin-top: 0;
+    opacity: 0;
     line-height:16px;
     -webkit-font-smoothing: antialiased;
     font-family: 'Archivo Black', sans-serif;
@@ -1316,6 +1317,11 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
       padding: 0 2px;
       @include apply-color-bg('color');
       @include apply-color-text('background-color');
+    }
+  }
+  &.active {
+    p, li {
+      opacity: 1;
     }
   }
 }
