@@ -68,8 +68,6 @@ var FB = (function($) {
     //     $videoWrapper.addClass('loaded');
     //   }, 1500);
     // });
-
-
   }
 
   function _randNum(arr,excludeNum){
