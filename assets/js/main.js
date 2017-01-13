@@ -13,6 +13,7 @@ var FB = (function($) {
       words,
       currentWordIndex,
       $videoWrapper,
+      colorScheme,
       $info;
 
   function _init() {
@@ -27,6 +28,7 @@ var FB = (function($) {
     _resize();
 
     _randomArrangement();
+    _randomColorScheme();
     _refreshArrangement();
     _initBackgroundVideo();
     _initInfoToggle();
@@ -44,15 +46,30 @@ var FB = (function($) {
 
   } // end init()
 
-  function _initBackgroundVideo() {
-    var iframe = $videoWrapper.find('iframe');
-    var player = new Vimeo.Player(iframe);
+  function _scrollBody(element, duration, delay, offset) {
+    if (offset === true && breakpoint_medium === true) {
+      offset = $header.outerHeight();
+    } else {
+      offset = 0;
+    }
+    element.velocity('scroll', {
+      duration: duration,
+      delay: delay,
+      offset: -offset
+    }, 'easeOutSine');
+  }
 
-    player.on('play', function() {
-      setTimeout(function() {
-        $videoWrapper.addClass('loaded');
-      }, 1500);
-    });
+  function _initBackgroundVideo() {
+    // var iframe = $videoWrapper.find('iframe');
+    // var player = new Vimeo.Player(iframe);
+
+    // player.on('play', function() {
+    //   setTimeout(function() {
+    //     $videoWrapper.addClass('loaded');
+    //   }, 1500);
+    // });
+
+
   }
 
   function _randNum(arr,excludeNum){
@@ -65,17 +82,17 @@ var FB = (function($) {
   }
 
   function _randomArrangement() {
-    // Has a current word been chosen yet?
-    if (currentWordIndex !== 'undefined') {
-      // If so, choose randomly exluding the current word
-      var randomWordIndex = _randNum(words, currentWordIndex);
-    } else {
-      // Otherwise choose a random word
-      var randomWordIndex = Math.floor(Math.random()*words.length);
-    }
+    // // Has a current word been chosen yet?
+    // if (currentWordIndex !== 'undefined') {
+    //   // If so, choose randomly exluding the current word
+    //   var randomWordIndex = _randNum(words, currentWordIndex);
+    // } else {
+    //   // Otherwise choose a random word
+    //   var randomWordIndex = Math.floor(Math.random()*words.length);
+    // }
 
     // Assign the word
-    var $randomWord = $(words[randomWordIndex]);
+    var $randomWord = $(words[0]);
 
     // Reset Widths
     _resetChildWidths($randomWord);
@@ -99,14 +116,23 @@ var FB = (function($) {
     // Assign the class to the current word
     $randomWord.addClass('arrangement-' + randomArrangement);
 
-    // Set the current word index
-    currentWordIndex = randomWordIndex;
+    // // Set the current word index
+    // currentWordIndex = randomWordIndex;
+  }
+
+  function _randomColorScheme() {
+    colorScheme = Math.ceil(Math.random()*8);
+    for(var i=1; i<=9; i++){
+      $('body').removeClass('color-scheme'+i);
+    }
+    $('body').addClass('color-scheme'+colorScheme);
   }
 
   function _refreshArrangement() {
     $('.refresh').on('click', function(e) {
       e.preventDefault();
       _randomArrangement();
+      _randomColorScheme();
     });
   }
 

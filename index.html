@@ -18,11 +18,15 @@
     <link rel="shortcut icon" type="image/ico" href="assets/images/favicon.png">
     <script src="assets/js/no-build/modernizr.custom.js"></script>
   </head>
-  <body>
+  <body class="color-scheme7">
 
     <div class="vimeo-wrapper">
-      <iframe src="https://player.vimeo.com/video/194104576?background=1&autoplay=1&loop=1&byline=0&title=0"
-           frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <!-- <iframe src="https://player.vimeo.com/video/194104576?background=1&autoplay=1&loop=1&byline=0&title=0"
+           frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+      <video class="background-video" playsinline autoplay muted loop>
+<!--         <source src="{{ 'assets/videos/homepage_bg_video.webm' | absolute_url }}" type="video/webm;codecs=&quot;vp8, vorbis&quot;">
+        <source src="{{ 'assets/videos/homepage_bg_video.mp4' | absolute_url }}" type="video/mp4"> -->
+      </video>
     </div>
 
     <div class="background-wrapper">
@@ -477,7 +481,7 @@
     </div>
 
 
-    <div class="submit arrangement arrangement-1 random" data-arrangements="2">
+<!--     <div class="submit arrangement arrangement-1 random" data-arrangements="2">
       <div class="TF8">
       </div>
       <div class="S">
@@ -493,7 +497,7 @@
       <div class="T">
       </div>
     </div>
-
+ -->
     <div class="info active" id="info">
       <h3>Submission Info</h3>
       <div class="toggle active"></div>
@@ -529,6 +533,7 @@
   </div>
 
     <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.4.0/velocity.min.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
