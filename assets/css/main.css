@@ -1671,9 +1671,9 @@ svg {
     -webkit-transition: width 1s;
     transition: width 1s;
     width: 0;
-    -webkit-animation: slide 0.5s ease-in 0s 1 forwards;
-    -moz-animation: slide 0.5s ease-in 0s 1 forwards;
-    animation: slide 0.5s ease-in 0s 1 forwards; }
+    -webkit-animation: expand 0.5s ease-in 0s 1 forwards;
+    -moz-animation: expand 0.5s ease-in 0s 1 forwards;
+    animation: expand 0.5s ease-in 0s 1 forwards; }
 
   .gridWrapper {
     height: calc(100% - 150px); }
