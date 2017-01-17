@@ -1,112 +1,54 @@
-// Applies first color of the color scheme to given property
-// Does so by creating new selectors for each color-scheme: 
-// 1. the current selector with the color scheme class prepended: .color-scheme-class current-selector
-// 2. the current selector with the color scheme class on the same level: current-selector.color-scheme-class
-// Within these selectors, proper color is applied to the specified property
-@mixin apply-color-bg($property) {
-  $color-schemes: 
-    '.color-scheme1' #EAEFF6, 
-    '.color-scheme2' #464756, 
-    '.color-scheme3' #1A1FB5, 
-    '.color-scheme4' #B61659, 
-    '.color-scheme5' #BCC6B0, 
-    '.color-scheme6' #1D4734, 
-    '.color-scheme7' #EFAA80, 
-    '.color-scheme8' #0069AC;
+$color-main-bg: 
+  '.color-scheme1' #EAEFF6, 
+  '.color-scheme2' #464756, 
+  '.color-scheme3' #1A1FB5, 
+  '.color-scheme4' #B61659, 
+  '.color-scheme5' #BCC6B0, 
+  '.color-scheme6' #1D4734, 
+  '.color-scheme7' #EFAA80, 
+  '.color-scheme8' #0069AC;
 
+$color-text: 
+  '.color-scheme1' #000000, 
+  '.color-scheme2' #C0BEAB, 
+  '.color-scheme3' #FFE500, 
+  '.color-scheme4' #00CAA0, 
+  '.color-scheme5' #343047, 
+  '.color-scheme6' #E6C9D3, 
+  '.color-scheme7' #004976, 
+  '.color-scheme8' #FF954A;
+
+$color-text-bg: 
+  '.color-scheme1' #FFFFFF, 
+  '.color-scheme2' #3E4052, 
+  '.color-scheme3' #0C0BC6, 
+  '.color-scheme4' #AB1454, 
+  '.color-scheme5' #CACEB7, 
+  '.color-scheme6' #15352A, 
+  '.color-scheme7' #F8B485, 
+  '.color-scheme8' #0061A2;
+
+@mixin apply-scheme($property, $schemes) {
   // Default
   #{$property}: white; 
 
   // Color Schemes
   $selector: &;
 
-  @each $color-scheme in $color-schemes {
-      $color-scheme-class: nth($color-scheme, 1);
-      $color-scheme-color: nth($color-scheme, 2);
+  @each $scheme in $schemes {
+      $scheme-class: nth($scheme, 1);
+      $scheme-value: nth($scheme, 2);
 
-    @at-root #{$color-scheme-class} {
+    @at-root #{$scheme-class} {
       #{$selector} {
-        #{$property}: $color-scheme-color;
+        #{$property}: $scheme-value;
       }
     }
-    @at-root #{selector-unify($selector, #{$color-scheme-class})} {
-      #{$property}: $color-scheme-color;
+    @at-root #{selector-unify($selector, #{$scheme-class})} {
+      #{$property}: $scheme-value;
     }
   } 
 }
-
-// Apply second color
-@mixin apply-color-text($property) {
-  $color-schemes: 
-    '.color-scheme1' #000000, 
-    '.color-scheme2' #C0BEAB, 
-    '.color-scheme3' #FFE500, 
-    '.color-scheme4' #00CAA0, 
-    '.color-scheme5' #343047, 
-    '.color-scheme6' #E6C9D3, 
-    '.color-scheme7' #004976, 
-    '.color-scheme8' #FF954A;
-
-  // Default
-  #{$property}: white; 
-
-  // Color Schemes
-  $selector: &;
-
-  @each $color-scheme in $color-schemes {
-      $color-scheme-class: nth($color-scheme, 1);
-      $color-scheme-color: nth($color-scheme, 2);
-
-    @at-root #{$color-scheme-class} {
-      #{$selector} {
-        #{$property}: $color-scheme-color;
-      }
-    }
-    @at-root #{selector-unify($selector, #{$color-scheme-class})} {
-      #{$property}: $color-scheme-color;
-    }
-  } 
-}
-
-// Apply third color
-@mixin apply-color-text-bg($property) {
-  $color-schemes: 
-    '.color-scheme1' #FFFFFF, 
-    '.color-scheme2' #3E4052, 
-    '.color-scheme3' #0C0BC6, 
-    '.color-scheme4' #AB1454, 
-    '.color-scheme5' #CACEB7, 
-    '.color-scheme6' #15352A, 
-    '.color-scheme7' #F8B485, 
-    '.color-scheme8' #0061A2;
-
-  // Default
-  #{$property}: white; 
-
-  // Color Schemes
-  $selector: &;
-
-  @each $color-scheme in $color-schemes {
-      $color-scheme-class: nth($color-scheme, 1);
-      $color-scheme-color: nth($color-scheme, 2);
-
-    @at-root #{$color-scheme-class} {
-      #{$selector} {
-        #{$property}: $color-scheme-color;
-      }
-    }
-    @at-root #{selector-unify($selector, #{$color-scheme-class})} {
-      #{$property}: $color-scheme-color;
-    }
-  } 
-}
-
-body {
-  // @include apply-color-bg('background-color');
-}
-
-
-
 
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -632,7 +574,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     left: 0;
     right: 0;
     bottom: 0;
-    @include apply-color-bg('background-color');
+    @include apply-scheme('background-color', $color-main-bg);
     content: '';
     transition: opacity .2s ease-out;
     background-repeat:no-repeat;
@@ -666,8 +608,8 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
    ========================================================================== */
 
    body {
-    @include apply-color-bg('background-color');
-    @include apply-color-text('color');
+    @include apply-scheme('background-color', $color-main-bg);
+    @include apply-scheme('color', $color-text);
     padding: 50px;
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 12px;
@@ -679,11 +621,11 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   }
 
   ::-webkit-scrollbar-track{
-    @include apply-color-bg('background-color');
+    @include apply-scheme('background-color', $color-main-bg);
   }
 
   ::-webkit-scrollbar-thumb{
-    @include apply-color-text('background-color');
+    @include apply-scheme('background-color', $color-text);
   }
 
 
@@ -721,16 +663,16 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 .column {
   height: 100%;
   border-right: 1px solid;
-  @include apply-color-text('border-right-color');
+  @include apply-scheme('border-right-color', $color-text);
   border-top: 1px solid;
-  @include apply-color-text('border-top-color');
+  @include apply-scheme('border-top-color', $color-text);
   position:absolute;
 }
 
 .col1 {
   width:2%;
   border-left: 1px solid;
-  @include apply-color-text('border-left-color');
+  @include apply-scheme('border-left-color', $color-text);
 }
 
 .col2 {
@@ -781,7 +723,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 .row {
   height: 5%;
   border-bottom: 1px solid;
-  @include apply-color-text('border-bottom-color');
+  @include apply-scheme('border-bottom-color', $color-text);
 }
 
 
@@ -1229,12 +1171,12 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   left: 33%;
   width: calc(45% - 1px);
   height: 28px;
-  @include apply-color-text-bg('background-color');
+  @include apply-scheme('background-color', $color-text-bg);
   overflow: hidden;
   text-align: justify;
   text-justify: inter-word;
   border-top: 1px solid;
-  @include apply-color-text('border-top-color');
+  @include apply-scheme('border-top-color', $color-text);
   transition: height .2s ease-out;
 }
 .info.active {
@@ -1279,7 +1221,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   cursor: pointer;
   position: absolute;
   border: 1px solid;
-  @include apply-color-text('border-color');
+  @include apply-scheme('border-color', $color-text);
 }
 .info .toggle::before,
 .info .toggle::after {
@@ -1288,7 +1230,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   height: 1px;
   width: 6px;
   content: '';
-  @include apply-color-text('background-color');
+  @include apply-scheme('background-color', $color-text);
   position: absolute;
 }
 .info .toggle::after {
@@ -1316,8 +1258,8 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
       position: relative;
       line-height: 12px;
       padding: 0 2px;
-      @include apply-color-bg('color');
-      @include apply-color-text('background-color');
+      @include apply-scheme('color', $color-main-bg);
+      @include apply-scheme('background-color', $color-text);
     }
   }
   &.active {
@@ -1360,7 +1302,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 }
 
 svg {
-  @include apply-color-text('fill');
+  @include apply-scheme('fill', $color-text);
 }
 
 @for $i from 1 through 8 {
@@ -1433,8 +1375,8 @@ svg {
     width: calc(100% + 100px);
     left:-50px;
     top:calc(100% + 50px);
-    @include apply-color-bg('color');
-    @include apply-color-text('background-color');
+    @include apply-scheme('color', $color-main-bg);
+    @include apply-scheme('background-color', $color-text);
     overflow:visible;
     overflow-x: visible;
     min-height:calc(100% + 100px);
@@ -1448,8 +1390,8 @@ svg {
   .info {
     li {
       .highlight {
-        @include apply-color-text('color');
-        @include apply-color-bg('background-color');
+        @include apply-scheme('color', $color-text);
+        @include apply-scheme('background-color', $color-main-bg);
       }
     }
   }
