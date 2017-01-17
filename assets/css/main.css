@@ -479,7 +479,10 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     bottom: 0;
     background-color: white;
     content: '';
-    transition: opacity .2s ease-out; }
+    transition: opacity .2s ease-out;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center; }
     .color-scheme1 .vimeo-wrapper::after {
       background-color: #EAEFF6; }
     .vimeo-wrapper.color-scheme1::after {
@@ -1597,41 +1600,41 @@ svg {
   svg.color-scheme8 {
     fill: #FF954A; }
 
+.color-scheme1 .background-wrapper, .color-scheme1 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_1.gif); }
+
+.color-scheme2 .background-wrapper, .color-scheme2 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_2.gif); }
+
+.color-scheme3 .background-wrapper, .color-scheme3 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_3.gif); }
+
+.color-scheme4 .background-wrapper, .color-scheme4 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_4.gif); }
+
+.color-scheme5 .background-wrapper, .color-scheme5 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_5.gif); }
+
+.color-scheme6 .background-wrapper, .color-scheme6 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_6.gif); }
+
+.color-scheme7 .background-wrapper, .color-scheme7 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_7.gif); }
+
+.color-scheme8 .background-wrapper, .color-scheme8 .vimeo-wrapper::after {
+  background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_8.gif); }
+
 @media only screen and (max-width: 1024px) {
   .background-wrapper {
     position: fixed;
     width: calc(100% + 50px);
     height: calc(100% + 50px);
     background-repeat: no-repeat;
-    background-size: 150%;
+    background-size: cover;
     background-position: top center;
     transform: translateX(0);
     top: -50px;
     left: -50px; }
-
-  .color-scheme1 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_1.gif); }
-
-  .color-scheme2 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_2.gif); }
-
-  .color-scheme3 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_3.gif); }
-
-  .color-scheme4 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_4.gif); }
-
-  .color-scheme5 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_5.gif); }
-
-  .color-scheme6 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_6.gif); }
-
-  .color-scheme7 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_7.gif); }
-
-  .color-scheme8 .background-wrapper {
-    background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_8.gif); }
 
   .vimeo-wrapper {
     display: none; }

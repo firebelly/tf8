@@ -616,7 +616,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 @keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
 
 
-.vimeo-wrapper {
+  .vimeo-wrapper {
    position: fixed;
    top: 0;
    left: 0;
@@ -634,7 +634,10 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     bottom: 0;
     @include apply-color-bg('background-color');
     content: '';
-   transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: top center;
    }
 }
 
@@ -713,8 +716,6 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
-
-
 }
 
 .column {
@@ -1362,7 +1363,13 @@ svg {
   @include apply-color-text('fill');
 }
 
-
+@for $i from 1 through 8 {
+  .color-scheme#{$i} {
+      .background-wrapper, .vimeo-wrapper::after {
+      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_#{$i}.gif);
+    }
+  }
+}
 
 @media only screen and (max-width : 1024px) {
 
@@ -1371,38 +1378,12 @@ svg {
     width: calc(100% + 50px);
     height: calc(100% + 50px);
     background-repeat:no-repeat;
-    background-size:150%;
+    background-size: cover;
     background-position: top center;
     transform: translateX(0);
     top: -50px;
     left:-50px;
   }
-
-  .color-scheme1 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_1.gif);
-  }
-  .color-scheme2 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_2.gif);
-  }
-  .color-scheme3 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_3.gif);
-  }
-  .color-scheme4 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_4.gif);
-  }
-  .color-scheme5 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_5.gif);
-  }
-  .color-scheme6 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_6.gif);
-  }
-  .color-scheme7 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_7.gif);
-  }
-  .color-scheme8 .background-wrapper {
-      background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_8.gif);
-  }
-
 
   .vimeo-wrapper {
     display: none;

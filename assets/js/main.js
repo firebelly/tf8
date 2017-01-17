@@ -133,10 +133,12 @@ var FB = (function($) {
     var iframe = $videoWrapper.find('iframe');
     player = new Vimeo.Player(iframe);
 
-    player.on('play', function() {
-      setTimeout(function() {
-        $videoWrapper.addClass('loaded');
-      }, 1500);
+    player.addCuePoint(.01).then(function(id) {
+      player.on('cuepoint', function (data) {
+        if(data.id === id) {
+          $videoWrapper.addClass('loaded');
+        }
+      });
     });
   }
 
