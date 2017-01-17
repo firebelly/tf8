@@ -631,33 +631,19 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 
 
-@-webkit-keyframes expand { from { width:calc(100% - 100px);} to { width:50%; } }
-@-moz-keyframes expand { from { width:calc(100% - 100px);} to { width:50%; } }
-@keyframes expand { from { width:calc(100% - 100px);} to { width:50%; } }
+@-webkit-keyframes expand { from { transform: scale(2,1);  } to { transform: none; } }
+@-moz-keyframes expand { from { transform: scale(2,1); } to { transform: none; } }
+@keyframes expand { from { transform: scale(2,1); } to { transform: none; } }
 
 
 .gridWrapper {
   width:50%;
   height:calc(100% - 100px);
   position: absolute;
-  -webkit-transition: width 1s;
-  transition: width 1s;
+  transform-origin: 0% 0%;
 
-  width:calc(100% - 100px);
-  -webkit-animation:expand ease-in 1;
-  -moz-animation:expand ease-in 1;
-  animation:expand ease-in 1;
-
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
-
-  -webkit-animation-duration:.5s;
-  -moz-animation-duration:.5s;
-  animation-duration:.5s;
-
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
+  
+  animation:expand 0.5s ease-in 0s 1 forwards;
 }
 
 .column {
@@ -1240,11 +1226,15 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   opacity: 0;
 }
 
-.info {
+// .info {
   p {
     margin-bottom: 16px;
   }
-  p, li {
+  h4 { 
+    margin-bottom: 0; 
+    font-weight: normal;
+  }
+  h4, p, li {
     margin-top: 0;
     opacity: 0;
     line-height:16px;
@@ -1261,20 +1251,20 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
       @include apply-scheme('background-color', $color-text);
     }
   }
-  &.active {
-    p, li {
+  .info.active {
+    h4, p, li {
       opacity: 1;
     }
   }
-}
+// }
 
-.info ul {
+ul {
   padding: 0;
   list-style: none;
-  margin: -1.25em 0 1.25em;
+  margin: 0 0 16px;// 1.25em;
 }
 
-.info ul li {
+ul li {
   line-height: 1.25;
   position: relative;
 }
@@ -1312,24 +1302,36 @@ svg {
   }
 }
 
+@keyframes slide {
+  from {
+    transform: translateX(50vw);
+    color: red !important;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media only screen and (min-width : 1025px) {
   ul.participants {
-    top: 0;
+    top: 50px;
     position: fixed;
     left: calc(50vw + 100px);
-    margin-top: 50px;    
+    margin-top: 0;   
+    min-width: 200px; 
 
-    -webkit-animation:expand ease-in 1;
-    -moz-animation:expand ease-in 1;
-    animation:expand ease-in 1;
-    
-    // Overwrite hiding when minimizing show info
+    -webkit-animation:slide ease-in ;
+    -moz-animation:slide ease-in 1;
+    animation:slide 0.5s ease-in 0s 1 forwards;
+
     li {
       opacity: 1;
     }
   }
 
-  .participants-title {
+
+
+  .mobile-only {
     display: none;
   }
 
@@ -1341,6 +1343,10 @@ svg {
 }
 
 @media only screen and (max-width : 1024px) {
+
+  .desktop-only {
+    display: none;
+  }
 
   @-webkit-keyframes expand { from { width:0;} to { width:calc(100% - 100px); } }
   @-moz-keyframes expand { from { width:0;} to { width:calc(100% - 100px); } }
@@ -1354,20 +1360,7 @@ svg {
     transition: width 1s;
 
     width:0;
-    -webkit-animation:expand ease-in 1;
-    -moz-animation:expand ease-in 1;
-    animation:expand ease-in 1;
-
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-
-    -webkit-animation-duration:.5s;
-    -moz-animation-duration:.5s;
-    animation-duration:.5s;
-
-    animation-timing-function: ease-in-out;
-    -webkit-animation-timing-function: ease-in-out;
+    animation:expand 0.5s ease-in 0s 1 forwards;
   }
 
   .gridWrapper {
