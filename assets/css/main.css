@@ -482,7 +482,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     transition: opacity .2s ease-out;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center; }
+    background-position: center center; }
     .color-scheme1 .vimeo-wrapper::after {
       background-color: #EAEFF6; }
     .vimeo-wrapper.color-scheme1::after {
@@ -904,7 +904,6 @@ body {
   right: -31px;
   padding: 3px;
   position: absolute;
-  background: url(../images/refresh.svg) no-repeat center center;
   background-size: 11px 11px;
   -webkit-transition: transform .2s;
   transition: transform .2s; }
@@ -1624,21 +1623,26 @@ svg {
 .color-scheme8 .background-wrapper, .color-scheme8 .vimeo-wrapper::after {
   background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_8.gif); }
 
-@media only screen and (max-width: 1024px) {
-  .background-wrapper {
+@media only screen and (min-width: 1025px) {
+  ul.participants {
+    top: 0;
     position: fixed;
-    width: calc(100% + 50px);
-    height: calc(100% + 50px);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-    transform: translateX(0);
-    top: -50px;
-    left: -50px; }
+    left: calc(50vw + 100px);
+    margin-top: 50px;
+    -webkit-animation: expand ease-in 1;
+    -moz-animation: expand ease-in 1;
+    animation: expand ease-in 1; }
+    ul.participants li {
+      opacity: 1; }
 
-  .vimeo-wrapper {
+  .participants-title {
     display: none; }
 
+  .refresh {
+    position: fixed;
+    top: 47px;
+    right: 47px; } }
+@media only screen and (max-width: 1024px) {
   @-webkit-keyframes expand {
     from {
       width: 0; }
@@ -1670,8 +1674,8 @@ svg {
     -moz-animation-duration: .5s;
     animation-duration: .5s;
     animation-timing-function: ease-in-out;
-    -webkit-animation-timing-function: ease-in-out; } }
-@media only screen and (max-width: 768px) {
+    -webkit-animation-timing-function: ease-in-out; }
+
   .gridWrapper {
     height: calc(100% - 150px); }
 
@@ -1846,5 +1850,19 @@ svg {
 
   .downarrow:focus {
     outline: none; } }
+@media only screen and (max-width: 768px) {
+  .vimeo-wrapper {
+    display: none; }
+
+  .background-wrapper {
+    position: fixed;
+    width: calc(100% + 50px);
+    height: calc(100% + 50px);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: top center;
+    transform: translateX(0);
+    top: -50px;
+    left: -50px; } }
 
 /*# sourceMappingURL=main.css.map */
