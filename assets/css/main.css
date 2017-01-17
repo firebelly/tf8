@@ -701,6 +701,8 @@ body {
   height: calc(100% - 100px);
   position: absolute;
   transform-origin: 0% 0%;
+  -webkit-animation: expand 0.5s ease-in 0s 1 forwards;
+  -moz-animation: expand 0.5s ease-in 0s 1 forwards;
   animation: expand 0.5s ease-in 0s 1 forwards; }
 
 .column {
@@ -1631,8 +1633,8 @@ svg {
     left: calc(50vw + 100px);
     margin-top: 0;
     min-width: 200px;
-    -webkit-animation: slide ease-in;
-    -moz-animation: slide ease-in 1;
+    -webkit-animation: slide 0.5s ease-in 0s 1 forwards;
+    -moz-animation: slide 0.5s ease-in 0s 1 forwards;
     animation: slide 0.5s ease-in 0s 1 forwards; }
     ul.participants li {
       opacity: 1; }
@@ -1669,7 +1671,9 @@ svg {
     -webkit-transition: width 1s;
     transition: width 1s;
     width: 0;
-    animation: expand 0.5s ease-in 0s 1 forwards; }
+    -webkit-animation: slide 0.5s ease-in 0s 1 forwards;
+    -moz-animation: slide 0.5s ease-in 0s 1 forwards;
+    animation: slide 0.5s ease-in 0s 1 forwards; }
 
   .gridWrapper {
     height: calc(100% - 150px); }
