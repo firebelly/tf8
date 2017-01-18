@@ -1660,7 +1660,7 @@ svg {
     right: 47px; } }
 @media only screen and (max-width: 1024px) {
   .desktop-only {
-    display: none; }
+    display: none !important; }
 
   @-webkit-keyframes expand {
     from {
@@ -1841,7 +1841,7 @@ svg {
       background-color: #1867a3; }
 
   .info .toggle {
-    display: none; }
+    display: none !important; }
 
   .downarrow {
     display: block;

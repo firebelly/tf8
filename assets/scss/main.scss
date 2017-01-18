@@ -1344,7 +1344,7 @@ svg {
 @media only screen and (max-width : 1024px) {
 
   .desktop-only {
-    display: none;
+    display: none !important;
   }
 
   @-webkit-keyframes expand { from { width:0;} to { width:calc(100% - 100px); } }
@@ -1399,7 +1399,7 @@ svg {
   }
 
   .info .toggle {
-    display: none;
+    display: none !important;
   }
 
   .downarrow{
