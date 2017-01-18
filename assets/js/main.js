@@ -17,6 +17,7 @@ var FB = (function($) {
       colorScheme,
       $videoWrapper,
       videoTimeout,
+      introRearranges = 0,
       $info;
 
   function _init() {
@@ -88,6 +89,11 @@ var FB = (function($) {
 
     // Assign the class to the current word
     $word.addClass('arrangement-' + currentArrangement);
+
+    if (introRearranges < 3) {
+      window.setTimeout(_randomArrangement, introRearranges === 0 ? 700 : 250);
+      introRearranges++;
+    }
   }
 
   function _randomColorScheme() {
@@ -104,7 +110,7 @@ var FB = (function($) {
     $('body').addClass('color-scheme'+colorScheme);
 
     clearTimeout(videoTimeout);
-    videoTimeout = window.setTimeout(_changeVideo,1000);
+    videoTimeout = window.setTimeout(_changeVideo,1500);
   }
 
   function _changeVideo () {
