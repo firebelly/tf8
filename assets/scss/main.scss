@@ -607,25 +607,12 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
    Styles
    ========================================================================== */
 
-   body {
+  body {
     @include apply-scheme('background-color', $color-main-bg);
     @include apply-scheme('color', $color-text);
     padding: 50px;
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 12px;
-   }
-
-   ::-webkit-scrollbar{
-    width: 10px;  /* for vertical scrollbars */
-    height: 10px; /* for horizontal scrollbars */
-  }
-
-  ::-webkit-scrollbar-track{
-    @include apply-scheme('background-color', $color-main-bg);
-  }
-
-  ::-webkit-scrollbar-thumb{
-    @include apply-scheme('background-color', $color-text);
   }
 
 
@@ -1164,6 +1151,19 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   border-top: 1px solid;
   @include apply-scheme('border-top-color', $color-text);
   transition: height .2s ease-out;
+
+  &::-webkit-scrollbar{
+    width: 10px;  /* for vertical scrollbars */
+    height: 10px; /* for horizontal scrollbars */
+  }
+
+  &::-webkit-scrollbar-track{
+    @include apply-scheme('background-color', $color-main-bg);
+  }
+
+  &::-webkit-scrollbar-thumb{
+    @include apply-scheme('background-color', $color-text);
+  }
 }
 .info.active {
   border: none;
@@ -1331,7 +1331,7 @@ svg {
 
 
   .mobile-only {
-    display: none;
+    display: none !important;
   }
 
   .refresh {
@@ -1399,7 +1399,7 @@ svg {
   }
 
   .info .toggle {
-    display: none !important;
+    display: none;
   }
 
   .downarrow{
