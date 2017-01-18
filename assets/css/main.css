@@ -1554,12 +1554,13 @@ ul li {
 /* ==========================================================================
    Responsive
    ========================================================================== */
-.letter {
-  overflow: hidden !important; }
-  .letter svg {
-    width: 100%;
-    height: 100%;
-    overflow: hidden !important; }
+.letter svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%; }
 
 svg {
   fill: white; }
@@ -1620,12 +1621,21 @@ svg {
 .color-scheme8 .background-wrapper, .color-scheme8 .vimeo-wrapper::after {
   background-image: url(http://firebelly.s3.amazonaws.com/tf8/tf8_colorway_8.gif); }
 
+@-webkit-keyframes slide {
+  from {
+    transform: translateX(50vw); }
+  to {
+    transform: none; } }
+@-moz-keyframes slide {
+  from {
+    transform: translateX(50vw); }
+  to {
+    transform: none; } }
 @keyframes slide {
   from {
-    transform: translateX(50vw);
-    color: red !important; }
+    transform: translateX(50vw); }
   to {
-    transform: translateX(0); } }
+    transform: none; } }
 @media only screen and (min-width: 1025px) {
   ul.participants {
     top: 50px;
