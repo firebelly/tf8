@@ -13,7 +13,7 @@ var FB = (function($) {
       words,
       player,
       currentWordIndex,
-      currentArrangement = 0,
+      currentArrangement = 1,
       colorScheme,
       $videoWrapper,
       videoTimeout,
@@ -30,10 +30,11 @@ var FB = (function($) {
 
     // Set screen size vars
     _resize();
-    _randomArrangement();
+    // _randomArrangement();
     _randomColorScheme();
     _refreshArrangement();
     _initInfoToggle();
+    window.setTimeout(_randomArrangement,800);
 
     // Smoothscroll links
     $('a.smoothscroll').click(function(e) {
@@ -90,10 +91,10 @@ var FB = (function($) {
     // Assign the class to the current word
     $word.addClass('arrangement-' + currentArrangement);
 
-    if (introRearranges < 3) {
-      window.setTimeout(_randomArrangement, introRearranges === 0 ? 700 : 250);
-      introRearranges++;
-    }
+    // if (introRearranges < 1) {
+    //   window.setTimeout(_randomArrangement, introRearranges === 0 ? 700 : 250);
+    //   introRearranges++;
+    // }
   }
 
   function _randomColorScheme() {
