@@ -1663,25 +1663,25 @@ svg {
 
   @-webkit-keyframes expand {
     from {
-      width: 0; }
+      transform: scale(0.01, 1); }
     to {
-      width: calc(100% - 100px); } }
+      transform: none; } }
   @-moz-keyframes expand {
     from {
-      width: 0; }
+      transform: scale(0.01, 1); }
     to {
-      width: calc(100% - 100px); } }
+      transform: none; } }
   @keyframes expand {
     from {
-      width: 0; }
+      transform: scale(0.01, 1); }
     to {
-      width: calc(100% - 100px); } }
+      transform: none; } }
   .gridWrapper {
     height: calc(100% - 100px);
     position: absolute;
     -webkit-transition: width 1s;
     transition: width 1s;
-    width: 0;
+    width: calc(100% - 100px);
     -webkit-animation: expand 0.5s ease-in 0s 1 forwards;
     -moz-animation: expand 0.5s ease-in 0s 1 forwards;
     animation: expand 0.5s ease-in 0s 1 forwards; }

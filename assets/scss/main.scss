@@ -1349,9 +1349,9 @@ svg {
     display: none !important;
   }
 
-  @-webkit-keyframes expand { from { width:0;} to { width:calc(100% - 100px); } }
-  @-moz-keyframes expand { from { width:0;} to { width:calc(100% - 100px); } }
-  @keyframes expand { from { width:0;} to { width:calc(100% - 100px); } }
+  @-webkit-keyframes expand { from { transform: scale(0.01,1); } to { transform: none; } }
+  @-moz-keyframes expand { from { transform: scale(0.01,1);} to { transform: none; } }
+  @keyframes expand { from { transform: scale(0.01,1);} to { transform: none; } }
 
 
   .gridWrapper {
@@ -1360,7 +1360,7 @@ svg {
     -webkit-transition: width 1s;
     transition: width 1s;
 
-    width:0;
+    width:calc(100% - 100px);
 
     -webkit-animation:expand 0.5s ease-in 0s 1 forwards;
     -moz-animation:expand 0.5s ease-in 0s 1 forwards;
