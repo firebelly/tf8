@@ -1,36 +1,36 @@
-$color-main-bg: 
-  '.color-scheme1' #ecf0f6, 
-  '.color-scheme2' #464755, 
-  '.color-scheme3' #1725af, 
-  '.color-scheme4' #9b3659, 
-  '.color-scheme5' #c0c6b5, 
-  '.color-scheme6' #2f4536, 
-  '.color-scheme7' #deaf8d, 
+$color-main-bg:
+  '.color-scheme1' #ecf0f6,
+  '.color-scheme2' #464755,
+  '.color-scheme3' #1725af,
+  '.color-scheme4' #9b3659,
+  '.color-scheme5' #c0c6b5,
+  '.color-scheme6' #2f4536,
+  '.color-scheme7' #deaf8d,
   '.color-scheme8' #1867a3;
 
-$color-text: 
-  '.color-scheme1' #000000, 
-  '.color-scheme2' #C0BEAB, 
-  '.color-scheme3' #FFE500, 
-  '.color-scheme4' #00CAA0, 
-  '.color-scheme5' #343047, 
-  '.color-scheme6' #E6C9D3, 
-  '.color-scheme7' #004976, 
+$color-text:
+  '.color-scheme1' #000000,
+  '.color-scheme2' #C0BEAB,
+  '.color-scheme3' #FFE500,
+  '.color-scheme4' #00CAA0,
+  '.color-scheme5' #343047,
+  '.color-scheme6' #E6C9D3,
+  '.color-scheme7' #004976,
   '.color-scheme8' #FF954A;
 
-$color-text-bg: 
-  '.color-scheme1' #FFFFFF, 
-  '.color-scheme2' #3E4052, 
-  '.color-scheme3' #0C0BC6, 
-  '.color-scheme4' #AB1454, 
-  '.color-scheme5' #CACEB7, 
-  '.color-scheme6' #15352A, 
-  '.color-scheme7' #F8B485, 
+$color-text-bg:
+  '.color-scheme1' #FFFFFF,
+  '.color-scheme2' #3E4052,
+  '.color-scheme3' #0C0BC6,
+  '.color-scheme4' #AB1454,
+  '.color-scheme5' #CACEB7,
+  '.color-scheme6' #15352A,
+  '.color-scheme7' #F8B485,
   '.color-scheme8' #0061A2;
 
 @mixin apply-scheme($property, $schemes) {
   // Default
-  #{$property}: white; 
+  #{$property}: white;
 
   // Color Schemes
   $selector: &;
@@ -47,7 +47,7 @@ $color-text-bg:
     @at-root #{selector-unify($selector, #{$scheme-class})} {
       #{$property}: $scheme-value;
     }
-  } 
+  }
 }
 
 
@@ -629,6 +629,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   height:calc(100% - 100px);
   position: absolute;
   transform-origin: 0% 0%;
+  z-index: 100;
 
   -webkit-animation:expand 0.5s ease-in 0s 1 forwards;
   -moz-animation:expand 0.5s ease-in 0s 1 forwards;
@@ -1232,8 +1233,8 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   p {
     margin-bottom: 16px;
   }
-  h4 { 
-    margin-bottom: 0; 
+  h4 {
+    margin-bottom: 0;
     font-weight: normal;
   }
   h4, p, li {
@@ -1318,8 +1319,8 @@ svg {
     top: 50px;
     position: fixed;
     left: calc(50vw + 100px);
-    margin-top: 0;   
-    min-width: 200px; 
+    margin-top: 0;
+    min-width: 200px;
     -webkit-animation:slide 0.5s ease-in 0s 1 forwards;
     -moz-animation:slide 0.5s ease-in 0s 1 forwards;
     animation:slide 0.5s ease-in 0s 1 forwards;
@@ -1359,7 +1360,7 @@ svg {
     -webkit-transition: width 1s;
     transition: width 1s;
 
-    width:0;    
+    width:0;
 
     -webkit-animation:expand 0.5s ease-in 0s 1 forwards;
     -moz-animation:expand 0.5s ease-in 0s 1 forwards;
