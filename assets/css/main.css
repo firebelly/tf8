@@ -1185,7 +1185,6 @@ body {
   height: 28px;
   background-color: white;
   overflow: hidden;
-  text-align: justify;
   text-justify: inter-word;
   border-top: 1px solid;
   border-top-color: white;
@@ -1460,7 +1459,8 @@ h4, p, li {
   opacity: 0;
   line-height: 16px;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Archivo Black', sans-serif; }
+  font-family: 'Archivo Black', sans-serif;
+  max-width: 250px; }
 
 li {
   padding: 2px 0; }

@@ -1148,7 +1148,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   height: 28px;
   @include apply-scheme('background-color', $color-text-bg);
   overflow: hidden;
-  text-align: justify;
+  // text-align: justify;
   text-justify: inter-word;
   border-top: 1px solid;
   @include apply-scheme('border-top-color', $color-text);
@@ -1243,6 +1243,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     line-height:16px;
     -webkit-font-smoothing: antialiased;
     font-family: 'Archivo Black', sans-serif;
+    max-width: 250px;
   }
   li {
     padding: 2px 0;
